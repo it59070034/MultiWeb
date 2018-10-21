@@ -4,6 +4,11 @@
 body {
   margin: 0;
 }
+
+a {
+  display: block;
+}
+
 #contentt{
   height:55%;
 }
@@ -86,13 +91,7 @@ body{
   flex-grow:1;
   flex-basis:100%;
 }
-.c13944{
-  color:rgb(64, 64, 64);
-  font-family:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size:18px;
-}
-.c13953{
-  box-sizing:inherit;
+.content_1{
   color:rgb(64, 64, 64);
   font-family:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size:18px;
