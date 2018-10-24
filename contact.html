@@ -65,48 +65,35 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Our Chefs</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">Contact</h2>
+          <h3 class="section-subheading text-muted">Tokuni<br>
+            Compass Skyview Hotel<br>
+            12 Sukhumvit 24 Klongtoey Bangkok 10110<br>
+            <a href="tel:063-224-1693">(+66) 63 224 1693</a><br>
+            aozora3bkk@gmail.com</h3>
         </div>
       </div>
-      <div class="row">
 
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="https://via.placeholder.com/450x450" alt="">
-            <h4>Michi Nakanishi</h4>
-            <p class="text-muted">Executive Sushi Chef</p>
-            <p class="text-muted">เกิดที่เมืองโอกินาวา ปี 1964 ครอบครัวทำอาชีพประมง
-              จบการศึกษาด้านการทำอาหารญี่ปุ่นที่
-              Tsuji Culinary Institute เมืองโตเกียว
-              มีประสบการณ์การทำอาหารญี่ปุ่นมากกว่า 20 ปี</p>
-            </div>
-          </div>
+      <div id="map" style="width:400px;height:400px;background:yellow"></div>
 
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="https://via.placeholder.com/450x450" alt="">
-              <h4>Naoki Noro</h4>
-              <p class="text-muted">Sushi Chef</p>
-              <p class="text-muted">เกิดที่เมืองโอซาก้า ปี 1978 จบด้านศิลปะการ
-ประกอบอาหาร มหาวิทยาลัย โตเกียว
-ประสบการณ์ด้านการทำซูชิมากกว่า 10 ปี</p>
-            </div>
-          </div>
+<script>
+function myMap() {
+var mapOptions = {
+    center: new google.maps.LatLng(51.5, -0.12),
+    zoom: 10,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+</script>
 
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="https://via.placeholder.com/450x450" alt="">
-              <h4>Narongsak Pongsuwan</h4>
-              <p class="text-muted">Kitchen Chef</p>
-              <p class="text-muted">เกิดที่จังหวัด ชัยนาท อายุ 25 ปี
-จบคณะคหกรรมศาสตร์
-จากมหาวิทยาลัยราชภัฏสวนสุนันทา</p>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
 
-            </div>
-          </div>
-        </div>
-
+      
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
