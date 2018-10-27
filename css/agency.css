@@ -145,15 +145,15 @@ img::-moz-selection {
   color: #fed136;
 }
 
-@media (min-width: 992px) {
-  #mainNav {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
-    transition: padding-top 0.3s, padding-bottom 0.3s;
+@media (min-width: 992px){
+#mainNav {
+    padding-top: 5px;
+    padding-bottom: 0px;
+    -webkit-transition: padding-top .3s,padding-bottom .3s;
+    transition: padding-top .3s,padding-bottom .3s;
     border: none;
-    background-color: transparent;
-  }
+    background-color: #cdaa8b;
+}
   #mainNav .navbar-brand {
     font-size: 1.75em;
     -webkit-transition: all 0.3s;
