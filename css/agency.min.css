@@ -58,9 +58,11 @@ section h3.section-subheading{
     -webkit-box-shadow:0 0 0 .2rem rgba(254,209,55,.5)!important;
     box-shadow:0 0 0 .2rem rgba(254,209,55,.5)!important}::-moz-selection{background:#fed136;text-shadow:none}::selection{background:#fed136;text-shadow:none}img::-moz-selection{background:0 0}img::selection{background:0 0}img::-moz-selection{background:0 0}
 #mainNav{
-  background-color:#212529
+  background-color:#212529;
+  z-index: 10000;
 }
 #mainNav .navbar-toggler{
+  z-index: 10000;
   font-size:12px;
   right:0;
   padding:13px;
@@ -71,6 +73,7 @@ section h3.section-subheading{
   font-family:Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'}#mainNav .navbar-brand{color:#fed136;font-family:'Kaushan Script',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'}
 
   #mainNav .navbar-brand.active,#mainNav .navbar-brand:active,#mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{
+    z-index: 10000;
     color:#fec503
   }
   #mainNav .navbar-nav .nav-item .nav-link{
@@ -97,7 +100,7 @@ section h3.section-subheading{
       padding-top:10px;
       padding-bottom:1px;
       -webkit-transition:padding-top .3s,padding-bottom .3s;transition:padding-top .3s,padding-bottom .3s;border:none;background-color:#cdaa8b;
-      z-index: 1;
+      z-index: 100;
     }
     #mainNav .navbar-brand{
       font-size:1.75em;
@@ -110,7 +113,7 @@ section h3.section-subheading{
     #mainNav.navbar-shrink{
       padding-top:0;
       padding-bottom:0;
-      background-color:#212529
+      background-color:#CDAA8B;
     }
     #mainNav.navbar-shrink .navbar-brand{
       font-size:1.25em;
