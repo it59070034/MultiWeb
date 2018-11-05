@@ -217,3 +217,13 @@ section h3.section-subheading{
                 width:50px;height:50px;-webkit-transition:all .3s;transition:all .3s;color:#fff;border-radius:100%;outline:0;background-color:#212529
               }
   ul.social-buttons li a:active,ul.social-buttons li a:focus,ul.social-buttons li a:hover{background-color:#fed136}
+
+  body::-webkit-scrollbar {
+    z-index: 3;
+    width: 1em;
+}
+body::-webkit-scrollbar-thumb {
+  z-index: 3;
+  background-color: #CDAA8B;
+  outline: 1px solid slategrey;
+}
