@@ -71,46 +71,50 @@
             Compass Skyview Hotel<br>
             12 Sukhumvit 24 Klongtoey Bangkok 10110<br>
             <a href="tel:063-224-1693">(+66) 63 224 1693</a><br>
-            aozora3bkk@gmail.com</h3>
-            <div class="mapouter" style="display: inline-block;">
+          aozora3bkk@gmail.com</h3>
+                    
+          <!-- Mapp -->
+          <div class="mapouter" style="display: inline-block;">
             <div class="gmap_canvas">
-                <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=12%20Sukhumvit%2024%20Klongtoey%20Bangkok%2010110&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                </iframe>
-                <a href="https://www.pureblack.de">pure black</a>
-                </div>
-                <style>
-                  .mapouter{
-                    text-align:right;
-                    height:500px;
-                    width:600px;
-                  }
-                  .gmap_canvas {
-                    overflow:hidden;
-                    background:none!important;
-                    height:500px;
-                    width:600px;}
-                  </style>
-                </div>
-
-                <!--<div id="map" style="width:400px;height:400px;"></div>-->
-
-              </div>
+              <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=12%20Sukhumvit%2024%20Klongtoey%20Bangkok%2010110&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+              </iframe>
+              <a href="https://www.pureblack.de">pure black</a>
             </div>
-  </div>
+            <style>
+            .mapouter{
+              text-align:right;
+              height:500px;
+              width:600px;
+            }
+            .gmap_canvas {
+              overflow:hidden;
+              background:none!important;
+              height:500px;
+              width:600px;}
+            </style>
+          </div>
 
-  <!-- link map -->
-  <script>
-    function myMap() {
-      var mapOptions = {
-        center: new google.maps.LatLng(51.5, -0.12),
-        zoom: 10,
-        mapTypeId: google.maps.MapTypeId.HYBRID
+          <!--<div id="map" style="width:400px;height:400px;"></div>-->
+        </div>
+      </div>
+    </div>
+
+          
+
+
+    <!-- link map -->
+    <script>
+      function myMap() {
+        var mapOptions = {
+          center: new google.maps.LatLng(51.5, -0.12),
+          zoom: 10,
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
       }
-      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    }
-  </script>
+    </script>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
