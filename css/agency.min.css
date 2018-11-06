@@ -292,3 +292,6 @@ body::-webkit-scrollbar-thumb {
 .zoom:hover {
     transform: scale(1.05);
 }
+.project-text{
+  padding: 5rem;
+}
