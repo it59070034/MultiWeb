@@ -11,6 +11,7 @@ a{
 }
 a:hover{
   color:#fec503
+  text-decoration: underline
 }
 .text-primary{
   color:#fed136!important
@@ -54,6 +55,7 @@ section h3.section-subheading{
     border-color:#fed136
   }
 .btn-primary:active,.btn-primary:focus,.btn-primary:hover{
+  text-decoration: underline;
   background-color:#fec810!important;
   border-color:#fec810!important;
   color:#fff
@@ -78,7 +80,8 @@ section h3.section-subheading{
 
   #mainNav .navbar-brand.active,#mainNav .navbar-brand:active,#mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{
     z-index: 10000;
-    color:#fec503
+    color:#fec503;
+    text-decoration: underline;
   }
   #mainNav .navbar-nav .nav-item .nav-link{
     font-size:90%;
@@ -97,6 +100,9 @@ section h3.section-subheading{
     height:144px;
     position: fixed;
     z-index: 5000;
+  }
+  #mainNav .nav-item:hover{
+    text-decoration: underline;
   }
 
   @media (min-width:992px){
