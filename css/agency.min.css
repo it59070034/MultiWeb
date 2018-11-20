@@ -58,7 +58,7 @@ section h3.section-subheading{
 }
   .btn-primary:active,.btn-primary:focus{
     -webkit-box-shadow:0 0 0 .2rem rgba(254,209,55,.5)!important;
-    box-shadow:0 0 0 .2rem rgba(254,209,55,.5)!important}::-moz-selection{background:#745e3c;text-shadow:none}::selection{background:#fed136;text-shadow:none}img::-moz-selection{background:0 0}img::selection{background:0 0}img::-moz-selection{background:0 0}
+    box-shadow:0 0 0 .2rem rgba(254,209,55,.5)!important}::-moz-selection{background:#745e3c;text-shadow:none}::selection{background:#cdaa8b;text-shadow:none}img::-moz-selection{background:0 0}img::selection{background:0 0}img::-moz-selection{background:0 0}
 #mainNav{
   background-color:#cdaa8b;
   z-index: 10000;
@@ -72,7 +72,7 @@ section h3.section-subheading{
   color:Black;
   border:0;
   background-color:#fff;
-  font-family:Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'}#mainNav .navbar-brand{color:#fed136;font-family:'Kaushan Script',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'}
+  font-family:Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'}#mainNav .navbar-brand{color:#fff;font-family:'Kaushan Script',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'}
 
   #mainNav .navbar-brand.active,#mainNav .navbar-brand:active,#mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{
     z-index: 10000;
@@ -343,7 +343,7 @@ section h3.section-subheading{
 }
 body::-webkit-scrollbar-thumb {
   z-index: 3;
-  background-color: #CDAA8B;
+  background-color: #745e3c;
   outline: 1px solid slategrey;
 }
 ::-webkit-scrollbar-track {
@@ -365,4 +365,15 @@ font-family: 'Maitree', serif;
 }
 #textdef{
 font-family: 'Maitree', serif;
+}
+
+.textsushi
+{
+  font-family: 'Maitree', serif;
+  color: gray;
+}
+#textsushi
+{
+  font-family: 'Maitree', serif;
+  color: gray;
 }
