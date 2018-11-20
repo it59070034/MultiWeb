@@ -24,6 +24,14 @@
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+
 </head>
 
 <body id="page-top">
@@ -71,6 +79,9 @@
                         	<div class="space-right">
                                 <div class="innerpage-heading ">
                                     <h1 id="textdef">Reservation</h1>
+                                    <h2>Check for available date</h2>
+                                    <br>
+                                    <p>Date: <input type="date" id="datepicker"></p>
                                 </div><!-- end innerpage-heading -->
 
                                 <form>
