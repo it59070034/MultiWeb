@@ -14,6 +14,7 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Maitree" rel="stylesheet">
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -23,14 +24,23 @@
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+
 </head>
 
 <body id="page-top">
 
   <!-- Navigation -->
+  <div><img src="img\about\logo.jpg" id="logo" ></div>​
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">TOKUNI</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -50,7 +60,7 @@
             <a class="nav-link js-scroll-trigger" href="chef.html">ABOUT CHEF</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="reserve.php">RESERVE</a>
+            <a class="nav-link js-scroll-trigger" href="reserve.php">RESERVATION</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="contact.html">CONTACT</a>
@@ -60,46 +70,140 @@
     </div>
   </nav>
 
-  <!-- About Chef -->
+  <!-- Reservation Zone -->
   <section class="bg-light" id="team">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Contact</h2>
-          <h3 class="section-subheading text-muted">Tokuni<br>
-            Compass Skyview Hotel<br>
-            12 Sukhumvit 24 Klongtoey Bangkok 10110<br>
-            <a href="tel:063-224-1693">(+66) 63 224 1693</a><br>
-            aozora3bkk@gmail.com</h3>
-        </div>
-      </div>
+  <div id="reservation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
+                        	<div class="space-right">
+                                <div class="innerpage-heading ">
+                                    <h1 id="textdef">Reservation</h1>
+                                    <h2>Check for available date</h2>
+                                    <br>
+                                    <p>Date: <input type="date" id="datepicker"></p>
+                                    <button type="button" class="btn btn-secondary">Check</button>
+                                </div><!-- end innerpage-heading -->
 
-      <div id="map" style="width:400px;height:400px;background:yellow"></div>
+                                <?php
+                                  function conn(){
 
-<!-- link map -->
-<script>
-function myMap() {
-var mapOptions = {
-    center: new google.maps.LatLng(51.5, -0.12),
-    zoom: 10,
-    mapTypeId: google.maps.MapTypeId.HYBRID
-}
-var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-}
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
+                                    $servername = "localhost";
+                                    $username = "root";
+                                    $password = "";
+                                    $dbname = "TOKUNI";
 
 
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-          </div>
-        </div>
+                                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+
+                                    if ($conn->connect_error) {
+                                      die("Connection failed: " . $conn->connect_error);
+                                    }
+                                    return $conn;
+                                  }
+
+
+                                $conn = conn();
+                                $sql = "SELECT * FROM guitarwars";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                    // output data of each row
+                                  echo '<table>';
+                                  while($row = $result->fetch_assoc()) {
+                                    //display the score date
+                                    echo '<tr><td class="scoreinfo">';
+                                    echo '<span class="score">' . $row['score'] . '</span><br />';
+                                    echo '<strong>Name:</strong> ' . $row['name'] . '<br />';
+                                    echo '<strong>Date:</strong> ' . $row['date'] . '</td></tr>';
+                                  }
+                                  echo '</table>';
+                                } else {
+                                  echo "0 results";
+                                }
+
+                                ?>
+
+
+                                <form>
+                                    <div class="row">
+                                    <div class="innerpage-heading" style="padding: 1.7em;">
+                                      <h2 id="textdef">Plese fill the information below</h2>
+                                    </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="First Name" required/>
+
+                                            </div>
+                                        </div><!-- end columns -->
+
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Last Name" required/>
+
+                                            </div>
+                                        </div><!-- end columns -->
+
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Email" required/>
+
+                                            </div>
+                                        </div><!-- end columns -->
+
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Phone Number" required/>
+
+                                            </div>
+                                        </div><!-- end columns -->
+
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control dpd1" placeholder="Date" required/>
+                                            </div>
+                                        </div><!-- end columns -->
+
+                                      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                <option selected>Seat</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                                </select>
+                                            </div>
+                                        </div><!-- end columns -->
+
+                                                                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="5" placeholder="Enter Message"></textarea>
+                                            </div>
+                                        </div><!-- end columns -->
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <button type="button" class="btn btn-secondary">Reserve Now</button>
+                                        </div><!-- end columns -->
+
+                                    </div><!-- end row -->
+                                </form>
+                            </div><!-- end space-right -->
+                        </div><!-- end columns -->
+
+
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div><!-- end reservation -->
+
       </div>
     </section>
 
