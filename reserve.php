@@ -93,7 +93,6 @@
                                     $password = "";
                                     $dbname = "TOKUNI";
 
-
                                     $conn = new mysqli($servername, $username, $password, $dbname);
 
 
@@ -105,7 +104,7 @@
 
 
                                 $conn = conn();
-                                $sql = "SELECT * FROM guitarwars";
+                                $sql = "SELECT * FROM reservation";
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
