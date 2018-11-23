@@ -27,7 +27,9 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker({
+      maxDate: "+1m"
+    });
   } );
   </script>
 
@@ -76,6 +78,7 @@
   $password = "";
   $dbname = "TOKUNI";
   $conn = new mysqli($servername, $username, $password, $dbname);
+  $concon = mysqli_connect($servername, $username, $password, $dbname);
   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
   }else {
@@ -100,94 +103,102 @@
                 <form method="post" action="TEST_REV.php">
                   <p>Date:
                     <input type="date" id="datepicker" name="revDate"></p>
+                    <input class="btn btn-secondary" type="submit" value="Check"/><br><br>
 
                     <?php
                     if(isset($_POST['revDate'])){
                       $revDate = $_POST['revDate'];
-                      echo $revDate;
+
+                      $query = mysqli_query($concon, "SELECT * FROM reservation WHERE DATE_FORMAT(REV_date, '%d/%m/%Y') =$revDate");
+                			if(mysqli_num_rows($query) > 0 ) { //check if there is already an entry for that username
+                				echo "Sorry, we arn't available on this date";
+                			}else{
+                				echo "Still avaliable";
+                        ?>
+
+                      </form>
+
+
+                      </div><!-- end innerpage-heading -->
+
+
+                      <form>
+                      <div class="row">
+                        <div class="innerpage-heading" style="padding: 1.7em;">
+                          <h2 id="textdef">Plese fill the information below</h2>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="First Name" required/>
+                          </div>
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                          <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email" required/>
+
+                          </div>
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Phone Number" required/>
+
+                          </div>
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                          <div class="form-group">
+                            <input type="text" class="form-control dpd1" placeholder="Date" required/>
+                          </div>
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                          <div class="form-group">
+                            <select class="form-control">
+                              <option selected>1 Seat</option>
+                              <option>2 Seat</option>
+                              <option>3 Seat</option>
+                              <option>4 Seat</option>
+                              <option>5 Seat</option>
+                              <option>6 Seat</option>
+                              <option>7 Seat</option>
+                              <option>8 Seat</option>
+                              <option>9 Seat</option>
+                            </select>
+                          </div>
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" placeholder="Enter Message"></textarea>
+                          </div>
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <button type="button" class="btn btn-secondary">Reserve Now</button>
+                        </div><!-- end columns -->
+
+                      </div><!-- end row -->
+                      </form>
+                      </div><!-- end space-right -->
+                      </div><!-- end columns -->
+
+
+                      </div><!-- end row -->
+                      </div><!-- end container -->
+                        <?php
+
+                			}
 
                     }
                     ?>
-                    <input class="btn btn-secondary" type="submit" value="Check"/>
-                  </form>
 
 
-                </div><!-- end innerpage-heading -->
 
 
-                <form>
-                  <div class="row">
-                    <div class="innerpage-heading" style="padding: 1.7em;">
-                      <h2 id="textdef">Plese fill the information below</h2>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
-                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="First Name" required/>
-                      </div>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Last Name" required/>
-
-                      </div>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email" required/>
-
-                      </div>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Phone Number" required/>
-
-                      </div>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <input type="text" class="form-control dpd1" placeholder="Date" required/>
-                      </div>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                      <div class="form-group">
-                        <select class="form-control">
-                          <option selected>1 Seat</option>
-                          <option>2 Seat</option>
-                          <option>3 Seat</option>
-                          <option>4 Seat</option>
-                          <option>5 Seat</option>
-                          <option>6 Seat</option>
-                          <option>7 Seat</option>
-                          <option>8 Seat</option>
-                          <option>9 Seat</option>
-                        </select>
-                      </div>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                      <div class="form-group">
-                        <textarea class="form-control" rows="5" placeholder="Enter Message"></textarea>
-                      </div>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                      <button type="button" class="btn btn-secondary">Reserve Now</button>
-                    </div><!-- end columns -->
-
-                  </div><!-- end row -->
-                </form>
-              </div><!-- end space-right -->
-            </div><!-- end columns -->
-
-
-          </div><!-- end row -->
-        </div><!-- end container -->
       </div><!-- end reservation -->
 
     </div>
