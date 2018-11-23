@@ -70,21 +70,19 @@
   </nav>
 
   <?php
+
   $servername = "localhost";
   $username = "root";
   $password = "";
   $dbname = "TOKUNI";
-
   $conn = new mysqli($servername, $username, $password, $dbname);
   if (!$conn) {
-          die("Connection failed: " . mysqli_connect_error());
-       }
-$check_rev = "SELECT * FROM `booked` WHERE 'REV_date' = $dateInput";
-$result = mysqli_query($conn, $query);
-       if ( mysqli_num_rows ( $result ) > 1 )
-       {
-       echo "We are not available";
-       }
+    die("Connection failed: " . mysqli_connect_error());
+  }else {
+    echo "connect successfully";
+  }
+
+
   ?>
 
   <!-- Reservation Zone -->
@@ -99,11 +97,21 @@ $result = mysqli_query($conn, $query);
                 <h2>Check for available date</h2>
                 <br>
 
-                <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <form method="post" action="TEST_REV.php">
                   <p>Date:
                     <input type="date" id="datepicker" name="revDate"></p>
-                    <input class="btn btn-secondary" type="submit" value="Check" id="btnSubmit" />
+
+                    <?php
+                    if(isset($_POST['revDate'])){
+                      $revDate = $_POST['revDate'];
+                      echo $revDate;
+
+                    }
+                    ?>
+                    <input class="btn btn-secondary" type="submit" value="Check"/>
                   </form>
+
+
                 </div><!-- end innerpage-heading -->
 
 
