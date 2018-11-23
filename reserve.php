@@ -82,27 +82,23 @@
                                     <h2>Check for available date</h2>
                                     <br>
                                     <p>Date: <input type="date" id="datepicker"></p>
+
                                     <button type="button" class="btn btn-secondary">Check</button>
                                 </div><!-- end innerpage-heading -->
 
                                 <?php
                                   function conn(){
-
                                     $servername = "localhost";
                                     $username = "root";
                                     $password = "";
                                     $dbname = "TOKUNI";
-
                                     $conn = new mysqli($servername, $username, $password, $dbname);
-
 
                                     if ($conn->connect_error) {
                                       die("Connection failed: " . $conn->connect_error);
                                     }
                                     return $conn;
                                   }
-
-
                                 $conn = conn();
                                 $sql = "SELECT * FROM reservation";
                                 $result = $conn->query($sql);
@@ -121,8 +117,15 @@
                                 } else {
                                   echo "0 results";
                                 }
-
                                 ?>
+
+                                <?php
+                                $query = "SELECT * FROM persons";
+                                if(isset($_POST['first_name'])) {
+                                   $query .= " WHERE firstname='".$_POST['first_name']."'";
+                                }
+                                $result = mysqli_query($con, $query);
+                                 ?>
 
 
                                 <form>
@@ -168,17 +171,15 @@
                                       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                                             <div class="form-group">
                                                 <select class="form-control">
-                                                <option selected>Seat</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
+                                                <option selected>1 Seat</option>
+                                                <option>2 Seat</option>
+                                                <option>3 Seat</option>
+                                                <option>4 Seat</option>
+                                                <option>5 Seat</option>
+                                                <option>6 Seat</option>
+                                                <option>7 Seat</option>
+                                                <option>8 Seat</option>
+                                                <option>9 Seat</option>
                                                 </select>
                                             </div>
                                         </div><!-- end columns -->
