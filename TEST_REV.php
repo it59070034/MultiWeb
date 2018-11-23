@@ -23,8 +23,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
-
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
@@ -71,42 +70,21 @@
   </nav>
 
   <?php
-    if (isset($_POST['submit'])) {
-      // Grab the score data from the POST
-      $revDate = $_POST['revDate'];
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "TOKUNI";
 
-      if (!empty($revDate)) {
-        // Connect to the database
-        function conn(){
-
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $dbname = "TOKUNI";
-          $conn = new mysqli($servername, $username, $password, $dbname);
-
-
-      if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
-      return $conn;
-    }
-    $conn = conn();
-
-    $checkRevDate = "SELECT count(*) FROM reservation WHERE REV_date='$revDate')";
-    $check = mysql_query($checkAppointment, $dbname);
-    $result = mysql_fetch_row($check);
-    $result = $result['0'];
-    if($result >0)
-      {
-       print ('Not Avaliable');
-      }
-    else
-      {
-      print('We are avaliable!');
-      }
-    }
-  }
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  if (!$conn) {
+          die("Connection failed: " . mysqli_connect_error());
+       }
+$check_rev = "SELECT * FROM `booked` WHERE 'REV_date' = $dateInput";
+$result = mysqli_query($conn, $query);
+       if ( mysqli_num_rows ( $result ) > 1 )
+       {
+       echo "We are not available";
+       }
   ?>
 
   <!-- Reservation Zone -->
@@ -124,8 +102,7 @@
                 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                   <p>Date:
                     <input type="date" id="datepicker" name="revDate"></p>
-
-                    <input class="btn btn-secondary" type="submit" value="Check" name="btnSubmit" />
+                    <input class="btn btn-secondary" type="submit" value="Check" id="btnSubmit" />
                   </form>
                 </div><!-- end innerpage-heading -->
 
@@ -212,7 +189,6 @@
 
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Plugin JavaScript -->
