@@ -157,15 +157,15 @@
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                           <div class="form-group">
                             <select class="form-control">
-                              <option selected>1 Seat</option>
-                              <option>2 Seat</option>
-                              <option>3 Seat</option>
-                              <option>4 Seat</option>
-                              <option>5 Seat</option>
-                              <option>6 Seat</option>
-                              <option>7 Seat</option>
-                              <option>8 Seat</option>
-                              <option>9 Seat</option>
+                              <option value="1" selected>1 Seat</option>
+                              <option value="2">2 Seat</option>
+                              <option value="3">3 Seat</option>
+                              <option value="4">4 Seat</option>
+                              <option value="5">5 Seat</option>
+                              <option value="6">6 Seat</option>
+                              <option value="7">7 Seat</option>
+                              <option value="8">8 Seat</option>
+                              <option value="9">9 Seat</option>
                             </select>
                           </div>
                         </div><!-- end columns -->
