@@ -112,90 +112,12 @@
                       if(mysqli_num_rows($query) > 0 ) { //check if there is already an entry for that username
                         echo "Sorry, we arn't available on this date";
                       }else{
-                        echo "Still avaliable";
+
+                        header("Location: reservation.php");
                         ?>
 
                       </form>
 
-
-                    </div><!-- end innerpage-heading -->
-
-
-                    <form method="POST">
-                      <div class="row">
-                        <div class="innerpage-heading" style="padding: 1.7em;">
-                          <h2 id="textdef">Plese fill the information below</h2>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
-                          <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Name" required/>
-                          </div>
-                        </div><!-- end columns -->
-
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <div class="form-group">
-                            <input type="email" name="email" class="form-control" placeholder="Email" required/>
-
-                          </div>
-                        </div><!-- end columns -->
-
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <div class="form-group">
-                            <input type="text" name="phone" class="form-control" placeholder="Phone Number" required/>
-
-                          </div>
-                        </div><!-- end columns -->
-
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                          <div class="form-group">
-                            <select name="seat" class="form-control">
-                              <option value="1" selected>1 Seat</option>
-                              <option value="2">2 Seat</option>
-                              <option value="3">3 Seat</option>
-                              <option value="4">4 Seat</option>
-                              <option value="5">5 Seat</option>
-                              <option value="6">6 Seat</option>
-                              <option value="7">7 Seat</option>
-                              <option value="8">8 Seat</option>
-                              <option value="9">9 Seat</option>
-                            </select>
-                          </div>
-                        </div><!-- end columns -->
-
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          <div class="form-group">
-                            <textarea class="form-control" name="mssg" rows="5" placeholder="Enter Message"></textarea>
-                          </div>
-                        </div><!-- end columns -->
-
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          <button type="submit" class="btn btn-secondary" name="btn-reserve">Reserve Now</button>
-                        </div><!-- end columns -->
-
-                        <?php
-
-                        if(isset($_POST['btn-reserve']))
-                        {
-                          $cname =  ($_POST['name']);
-                          $cemail =  ($_POST['email']);
-                          $cphone =  ($_POST['phone']);
-                          $cseat =  ($_POST['seat']);
-                          $cmssg =  ($_POST['mssg']);
-                          $revsql = "INSERT INTO reservation (CUS_name, CUS_phone, REV_date, SEAT, CUS_email, CUS_mssg)
-                          VALUES ('$cname', '$cphone', '$revDate', '$cseat','$cemail','$cmssg')";
-
-                          if ($conn->query($revsql) === TRUE)
-                          {
-                            echo "New record created successfully";
-                          }
-                          else
-                          {
-                            echo "Error: " . $revsql . "<br>" . $conn->error;
-                          }
-                        }
-                        
-                        ?>
 
 
                       </div><!-- end row -->

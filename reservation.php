@@ -96,31 +96,7 @@
             <div class="space-right">
               <div class="innerpage-heading ">
                 <h1 id="textdef">Reservation</h1>
-                <h2>Check for available date</h2>
-                <br>
-
-                <form method="post" action="TEST_REV.php">
-                  <p>Date:
-                    <input type="date" id="datepicker" name="revDate"></p>
-                    <input class="btn btn-secondary" type="submit" value="Check"/><br><br>
-
-                    <?php
-                    if(isset($_POST['revDate'])){
-                      $revDate = $_POST['revDate'];
-
-                      $query = mysqli_query($concon, "SELECT * FROM reservation WHERE REV_date ='$revDate'");
-                      if(mysqli_num_rows($query) > 0 ) { //check if there is already an entry for that username
-                        echo "Sorry, we arn't available on this date";
-                      }else{
-                        echo "Still avaliable";
-                        ?>
-
-                      </form>
-
-
                     </div><!-- end innerpage-heading -->
-
-
                     <form method="POST">
                       <div class="row">
                         <div class="innerpage-heading" style="padding: 1.7em;">
@@ -173,29 +149,7 @@
                           <button type="submit" class="btn btn-secondary" name="btn-reserve">Reserve Now</button>
                         </div><!-- end columns -->
 
-                        <?php
 
-                        if(isset($_POST['btn-reserve']))
-                        {
-                          $cname =  ($_POST['name']);
-                          $cemail =  ($_POST['email']);
-                          $cphone =  ($_POST['phone']);
-                          $cseat =  ($_POST['seat']);
-                          $cmssg =  ($_POST['mssg']);
-                          $revsql = "INSERT INTO reservation (CUS_name, CUS_phone, REV_date, SEAT, CUS_email, CUS_mssg)
-                          VALUES ('$cname', '$cphone', '$revDate', '$cseat','$cemail','$cmssg')";
-
-                          if ($conn->query($revsql) === TRUE)
-                          {
-                            echo "New record created successfully";
-                          }
-                          else
-                          {
-                            echo "Error: " . $revsql . "<br>" . $conn->error;
-                          }
-                        }
-
-                        ?>
 
 
                       </div><!-- end row -->
@@ -206,12 +160,6 @@
 
               </div><!-- end row -->
             </div><!-- end container -->
-            <?php
-
-          }
-
-        }
-        ?>
 
 
 
