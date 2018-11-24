@@ -85,6 +85,9 @@
     echo "connect successfully";
   }
 
+  session_start();
+
+  $revDate = $_SESSION["revDate"];
   ?>
 
   <!-- Reservation Zone -->
@@ -95,7 +98,7 @@
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
             <div class="space-right">
               <div class="innerpage-heading ">
-                <h1 id="textdef">Reservation</h1>
+                <h1 id="textdef">Reservation on <?php echo $revDate; ?> </h1>
                     </div><!-- end innerpage-heading -->
                     <form method="POST">
                       <div class="row">

@@ -105,8 +105,13 @@
                     <input class="btn btn-secondary" type="submit" value="Check"/><br><br>
 
                     <?php
+
                     if(isset($_POST['revDate'])){
                       $revDate = $_POST['revDate'];
+
+                      session_start();
+
+                      $_SESSION['revDate'] = $revDate;
 
                       $query = mysqli_query($concon, "SELECT * FROM reservation WHERE REV_date ='$revDate'");
                       if(mysqli_num_rows($query) > 0 ) { //check if there is already an entry for that username
