@@ -109,7 +109,7 @@
                     if(isset($_POST['revDate'])){
                       $revDate = $_POST['revDate'];
 
-                      $query = mysqli_query($concon, "SELECT * FROM reservation WHERE DATE_FORMAT(REV_date, '%d/%m/%Y') =$revDate");
+                      $query = mysqli_query($concon, "SELECT * FROM reservation WHERE REV_date ='$revDate'");
                 			if(mysqli_num_rows($query) > 0 ) { //check if there is already an entry for that username
                 				echo "Sorry, we arn't available on this date";
                 			}else{
@@ -148,13 +148,7 @@
                           </div>
                         </div><!-- end columns -->
 
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <div class="form-group">
-                            <input type="text" class="form-control dpd1" placeholder="Date" required/>
-                          </div>
-                        </div><!-- end columns -->
-
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                           <div class="form-group">
                             <select class="form-control">
                               <option value="1" selected>1 Seat</option>
