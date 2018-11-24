@@ -85,6 +85,14 @@
     echo "connect successfully";
   }
 
+  if(isset($_POST['reserve']))
+{
+    $sql = "INSERT INTO reservation (username, password, email)
+    VALUES ('".$_POST["username"]."','".$_POST["password"]."','".$_POST["email"]."')";
+
+    $result = mysqli_query($conn,$sql);
+}
+
 
   ?>
 
@@ -130,27 +138,27 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
                           <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name" required/>
+                            <input type="text" name="name" class="form-control" placeholder="Name" required/>
                           </div>
                         </div><!-- end columns -->
 
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                           <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" required/>
+                            <input type="email" name="email" class="form-control" placeholder="Email" required/>
 
                           </div>
                         </div><!-- end columns -->
 
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                           <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Phone Number" required/>
+                            <input type="text" name="phone" class="form-control" placeholder="Phone Number" required/>
 
                           </div>
                         </div><!-- end columns -->
 
                       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                           <div class="form-group">
-                            <select class="form-control">
+                            <select name="seat" class="form-control">
                               <option value="1" selected>1 Seat</option>
                               <option value="2">2 Seat</option>
                               <option value="3">3 Seat</option>
@@ -166,13 +174,15 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                           <div class="form-group">
-                            <textarea class="form-control" rows="5" placeholder="Enter Message"></textarea>
+                            <textarea class="form-control" name="mssg" rows="5" placeholder="Enter Message"></textarea>
                           </div>
                         </div><!-- end columns -->
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          <button type="button" class="btn btn-secondary">Reserve Now</button>
+                          <button type="submit" class="btn btn-secondary" name="reserve">Reserve Now</button>
                         </div><!-- end columns -->
+
+
 
                       </div><!-- end row -->
                       </form>
