@@ -86,7 +86,6 @@
   }
 
   session_start();
-
   $revDate = $_SESSION["revDate"];
   ?>
 
@@ -100,7 +99,7 @@
               <div class="innerpage-heading ">
                 <h1 id="textdef">Reservation on <?php echo $revDate; ?> </h1>
                     </div><!-- end innerpage-heading -->
-                    <form method="POST">
+                    <form action="" method="POST">
                       <div class="row">
                         <div class="innerpage-heading" style="padding: 1.7em;">
                           <h2 id="textdef">Plese fill the information below</h2>
@@ -108,27 +107,27 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
                           <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Name" required/>
+                            <input type="text" name="cname" class="form-control" placeholder="Name" required/>
                           </div>
                         </div><!-- end columns -->
 
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                           <div class="form-group">
-                            <input type="email" name="email" class="form-control" placeholder="Email" required/>
+                            <input type="email" name="cemail" class="form-control" placeholder="Email" required/>
 
                           </div>
                         </div><!-- end columns -->
 
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                           <div class="form-group">
-                            <input type="text" name="phone" class="form-control" placeholder="Phone Number" required/>
+                            <input type="text" name="cphone" class="form-control" placeholder="Phone Number" required/>
 
                           </div>
                         </div><!-- end columns -->
 
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                           <div class="form-group">
-                            <select name="seat" class="form-control">
+                            <select name="seatnum" class="form-control">
                               <option value="1" selected>1 Seat</option>
                               <option value="2">2 Seat</option>
                               <option value="3">3 Seat</option>
@@ -144,7 +143,7 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                           <div class="form-group">
-                            <textarea class="form-control" name="mssg" rows="5" placeholder="Enter Message"></textarea>
+                            <textarea class="form-control" name="cmssg" rows="5" placeholder="Enter Message.."></textarea>
                           </div>
                         </div><!-- end columns -->
 
@@ -157,6 +156,26 @@
 
                       </div><!-- end row -->
                     </form>
+                    <?php
+                    if(isset($_POST['btn-reserve']))
+                  {
+
+                    $name = $_POST["cname"];
+                    $mail = $_POST["cemail"];
+                    $phone = $_POST["cphone"];
+                    $seat = $_POST["seatnum"];
+                    $mssg = $_POST["cmssg"];
+                       $SQL = "INSERT INTO reservation (CUS_name, CUS_phone, REV_date, SEAT, CUS_email, CUS_mssg)
+                       VALUES ('$name', '$phone', '$revDate', $seat, '$mail', '$mssg')";
+                       $result = mysqli_query($concon,$SQL);
+
+                       if (!$result) {
+                         die('Invalid query: ' . mysqli_error($concon));
+                       }
+                  }
+
+                       ?>
+
                   </div><!-- end space-right -->
                 </div><!-- end columns -->
 
