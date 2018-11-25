@@ -24,7 +24,6 @@
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
     $( "#datepicker" ).datepicker({
