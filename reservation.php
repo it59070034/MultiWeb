@@ -61,7 +61,7 @@
             <a class="nav-link js-scroll-trigger" href="chef.html">ABOUT CHEF</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="reserve.php">RESERVATION</a>
+            <a class="nav-link js-scroll-trigger" href="reservation.php">RESERVATION</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="contact.html">CONTACT</a>
@@ -85,8 +85,6 @@
     echo "connect successfully";
   }
 
-  session_start();
-  $revDate = $_SESSION["revDate"];
   ?>
 
   <!-- Reservation Zone -->
@@ -97,91 +95,50 @@
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
             <div class="space-right">
               <div class="innerpage-heading ">
-                <h1 id="textdef">Reservation on <?php echo $revDate; ?> </h1>
-                    </div><!-- end innerpage-heading -->
-                    <form action="" method="POST">
-                      <div class="row">
-                        <div class="innerpage-heading" style="padding: 1.7em;">
-                          <h2 id="textdef">Plese fill the information below</h2>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <h1 id="textdef">Reservation</h1>
+                <h2>Check for available date</h2>
+                <br>
 
-                          <div class="form-group">
-                            <input type="text" name="cname" class="form-control" placeholder="Name" required/>
-                          </div>
-                        </div><!-- end columns -->
+                <form method="post" action="reservation.php">
+                  <p>Date:
+                    <input type="date" id="datepicker" name="revDate"></p>
+                    <input class="btn btn-secondary" type="submit" value="Check"/><br><br>
 
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <div class="form-group">
-                            <input type="email" name="cemail" class="form-control" placeholder="Email" required/>
+                    <?php
 
-                          </div>
-                        </div><!-- end columns -->
+                    if(isset($_POST['revDate'])){
+                      $revDate = $_POST['revDate'];
 
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <div class="form-group">
-                            <input type="text" name="cphone" class="form-control" placeholder="Phone Number" required/>
+                      session_start();
 
-                          </div>
-                        </div><!-- end columns -->
+                      $_SESSION['revDate'] = $revDate;
 
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                          <div class="form-group">
-                            <select name="seatnum" class="form-control">
-                              <option value="1" selected>1 Seat</option>
-                              <option value="2">2 Seat</option>
-                              <option value="3">3 Seat</option>
-                              <option value="4">4 Seat</option>
-                              <option value="5">5 Seat</option>
-                              <option value="6">6 Seat</option>
-                              <option value="7">7 Seat</option>
-                              <option value="8">8 Seat</option>
-                              <option value="9">9 Seat</option>
-                            </select>
-                          </div>
-                        </div><!-- end columns -->
+                      $query = mysqli_query($concon, "SELECT * FROM reservation WHERE REV_date ='$revDate'");
+                      if(mysqli_num_rows($query) > 0 ) { //check if there is already an entry for that username
+                        echo "Sorry, we arn't available on this date";
+                      }else{
 
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          <div class="form-group">
-                            <textarea class="form-control" name="cmssg" rows="5" placeholder="Enter Message.."></textarea>
-                          </div>
-                        </div><!-- end columns -->
+                        header("Location: detail_reserv.php");
+                        ?>
 
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          <button type="submit" class="btn btn-secondary" name="btn-reserve">Reserve Now</button>
-                        </div><!-- end columns -->
-
+                      </form>
 
 
 
                       </div><!-- end row -->
                     </form>
-                    <?php
-                    if(isset($_POST['btn-reserve']))
-                  {
-
-                    $name = $_POST["cname"];
-                    $mail = $_POST["cemail"];
-                    $phone = $_POST["cphone"];
-                    $seat = $_POST["seatnum"];
-                    $mssg = $_POST["cmssg"];
-                       $SQL = "INSERT INTO reservation (CUS_name, CUS_phone, REV_date, SEAT, CUS_email, CUS_mssg)
-                       VALUES ('$name', '$phone', '$revDate', $seat, '$mail', '$mssg')";
-                       $result = mysqli_query($concon,$SQL);
-
-                       if (!$result) {
-                         die('Invalid query: ' . mysqli_error($concon));
-                       }
-                  }
-
-                       ?>
-
                   </div><!-- end space-right -->
                 </div><!-- end columns -->
 
 
               </div><!-- end row -->
             </div><!-- end container -->
+            <?php
+
+          }
+
+        }
+        ?>
 
 
 
