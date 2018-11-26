@@ -393,3 +393,8 @@ font-family: 'Maitree', serif;
   font-family: 'Maitree', serif;
   color: gray;
 }
+*{
+    margin: 0px;
+    padding: 0px;
+    transition: all .3s;
+}
