@@ -383,16 +383,13 @@ font-family: 'Maitree', serif;
 font-family: 'Maitree', serif;
 }
 
-.textsushi
-{
-  font-family: 'Maitree', serif;
-  color: gray;
+.textdefsushi{
+font-family: 'Maitree', serif;
 }
-#textsushi
-{
-  font-family: 'Maitree', serif;
-  color: gray;
+#textdefsushi{
+font-family: 'Maitree', serif;
 }
+
 *{
     margin: 0px;
     padding: 0px;
