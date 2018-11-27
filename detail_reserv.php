@@ -102,7 +102,7 @@
               <form action="" method="POST">
                 <div class="row">
                   <div class="innerpage-heading" style="padding: 1.7em;">
-                    <h2 id="textdef">Plese fill the information below</h2>
+                    <h2 id="textdef">Please fill the information below</h2>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
@@ -143,7 +143,8 @@
 
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="form-group">
-                      <textarea class="form-control" name="cmssg" rows="5" placeholder="Enter Message.."></textarea>
+                      <input type="text" name="cmssg" class="form-control" rows="5" placeholder="Enter Message.."/>
+                      <!-- <textarea class="form-control" name="cmssg" rows="5" placeholder="Enter Message.."></textarea> -->
                     </div>
                   </div><!-- end columns -->
 
